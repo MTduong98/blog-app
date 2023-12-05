@@ -40,4 +40,9 @@ public class PostServiceImpl implements PostService {
         return PostMapper.map(savePost);
 
     }
+
+    @Override
+    public void deleteById(Long id) {
+        postRepository.deleteById(id);
+    }
 }

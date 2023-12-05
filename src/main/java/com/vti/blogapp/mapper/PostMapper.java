@@ -6,7 +6,7 @@ import com.vti.blogapp.form.PostCreateForm;
 import com.vti.blogapp.form.PostUpdateForm;
 
 public class PostMapper {
-    public static Post map(PostCreateForm form){
+    public static Post map(PostCreateForm form) {
         var post = new Post();
         post.setTitle(form.getTitle());
         post.setDescription(form.getDescription());
@@ -14,13 +14,14 @@ public class PostMapper {
         return post;
     }
 
-    public static Post map(PostUpdateForm form){
+    public static Post map(PostUpdateForm form) {
         var post = new Post();
         post.setTitle(form.getTitle());
         post.setDescription(form.getDescription());
         post.setContent(form.getContent());
         return post;
     }
+
     public static PostDto map(Post post) {
         var dto = new PostDto();
         dto.setId(post.getId());

@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface PostService {
     Page<PostDto> findAll(Pageable pageable);
+    PostDto findById(Long id);
     PostDto create(PostCreateForm from);
 
     PostDto update(PostUpdateForm from, Long id);

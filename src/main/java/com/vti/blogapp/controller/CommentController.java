@@ -38,6 +38,12 @@ public class CommentController {
     }
     @DeleteMapping("/api/v1/comments/{id}")
     public void deleteById(@PathVariable("id") Long id){
+
         commentService.deleteById(id);
     }
+    @DeleteMapping("/api/v1/comments/email/{email}")
+    public void deleteByEmail(String email){
+        commentService.deleteByEmail(email);
+    }
+
 }

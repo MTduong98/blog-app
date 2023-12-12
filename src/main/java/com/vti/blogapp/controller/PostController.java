@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
 @Validated
 @RestController
 @AllArgsConstructor
@@ -20,6 +21,7 @@ public class PostController {
 
     @GetMapping("/api/v1/posts")
     public Page<PostDto> findAll(PostFilterForm form, Pageable pageable) {
+
         return postService.findAll(form, pageable);
     }
 
@@ -35,7 +37,7 @@ public class PostController {
     }
 
     @PutMapping("/api/v1/posts/{id}")
-    public PostDto update(@RequestBody PostUpdateForm form, @PathVariable("id") Long id) {
+    public PostDto update(@RequestBody @Valid PostUpdateForm form, @PathVariable("id") Long id) {
         return postService.update(form, id);
     }
 

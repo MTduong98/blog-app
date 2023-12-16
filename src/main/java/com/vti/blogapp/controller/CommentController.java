@@ -6,6 +6,7 @@ import com.vti.blogapp.form.CommentFilterForm;
 import com.vti.blogapp.form.CommentUpdateForm;
 import com.vti.blogapp.service.CommentService;
 import com.vti.blogapp.validation.CommentIdExists;
+import com.vti.blogapp.validation.PostIdExists;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,7 +25,7 @@ public class CommentController {
         return commentService.findAll(form,pageable);
     }
     @GetMapping("/api/v1/posts/{postId}/comments")
-    public Page<CommentDto> findByPostId(@PathVariable("postId") Long postId, Pageable pageable){
+    public Page<CommentDto> findByPostId(@PathVariable("postId") @PostIdExists Long postId, Pageable pageable){
         return commentService.findByPostId(postId, pageable);
     }
 

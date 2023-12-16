@@ -1,5 +1,6 @@
 package com.vti.blogapp.form;
 
+import com.vti.blogapp.validation.PostTitleNotExists;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import org.hibernate.validator.constraints.Length;
 public class PostUpdateForm {
     @NotBlank
     @Length(max=50)
+    @PostTitleNotExists
     private String title;
     @NotBlank
     @Length(max=100)
